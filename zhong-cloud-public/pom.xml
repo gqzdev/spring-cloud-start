@@ -13,6 +13,7 @@
         <module>power</module>
         <module>order</module>
         <module>power1</module>
+        <module>eureka</module>
     </modules>
 
     <parent>
@@ -27,6 +28,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+
+
 
 
         <dependency>
