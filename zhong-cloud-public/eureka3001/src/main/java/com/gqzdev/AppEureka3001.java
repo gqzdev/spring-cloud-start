@@ -2,19 +2,21 @@ package com.gqzdev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
- * @ClassName: AppPowerServer
+ * @ClassName: AppEureka
  * @author: ganquanzhong
- * @date: 2020/4/30 17:01
+ * @date: 2020/5/7 17:59
  */
 
+
 @SpringBootApplication
-@EnableEurekaClient
-public class AppPowerServer {
+@EnableEurekaServer
+public class AppEureka3001 {
 
     public static void main(String[] args){
-        SpringApplication.run(AppPowerServer.class,args);
+        SpringApplication.run(AppEureka3001.class,args);
     }
+
 }

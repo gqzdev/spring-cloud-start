@@ -14,6 +14,8 @@
         <module>order</module>
         <module>power1</module>
         <module>eureka</module>
+        <module>eureka3001</module>
+        <module>eureka3002</module>
     </modules>
 
     <parent>
@@ -24,14 +26,20 @@
     </parent>
 
     <dependencies>
+        <!--引入Spring Cloud依赖库  注意和SpringBoot的版本兼容问题-->
+       <!--
+       <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-parent</artifactId>
+            <version>Greenwich.SR5</version>
+        </dependency>
+        -->
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-
-
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -2,6 +2,7 @@ package com.gqzdev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * @ClassName: AppEureka
@@ -11,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-
-public class AppEureka {
+@EnableEurekaServer
+public class AppEureka3000 {
 
     public static void main(String[] args){
-        SpringApplication.run(AppEureka.class,args);
+        SpringApplication.run(AppEureka3000.class,args);
     }
 
 }
