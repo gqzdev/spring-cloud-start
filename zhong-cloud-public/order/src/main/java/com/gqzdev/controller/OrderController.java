@@ -6,19 +6,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 
 /**
- * @ClassName: PowerController
+ * @ClassName: OrderController
  * @author: ganquanzhong
- * @date: 2020/4/30 17:04
+ * @date: 2020/5/11 15:07
  */
 
 @RestController
-public class PowerController {
+public class OrderController {
 
 
-    @RequestMapping("/getPower")
-    public Object getPower(){
+    @RequestMapping("/getOrder")
+    public Object getOrder(){
         HashMap<String, Object> map = new HashMap<>();
-        map.put("key","power-cluster-01  服务提供者power1  ");
+        map.put("orderinfo","order 订单信息 uid  productInfo");
         return map;
     }
 }

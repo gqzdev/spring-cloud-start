@@ -1,9 +1,9 @@
 server:
-    port: 6001
+    port: 7001
 
 spring:
     application:
-        name: server-power #此实例注册到eureka服务端的name
+        name: server-order #此实例注册到eureka服务端的name
 
 #eureka客户端配置  注册服务
 eureka:
@@ -13,7 +13,7 @@ eureka:
             defaultZone: http://localhost:3000/eureka
 
     instance:
-        instance-id: power-1   #此实例注册到eureka服务端的唯一的实例ID
+        instance-id: order-1 #此实例注册到eureka服务端的唯一的实例ID
         prefer-ip-address: true #是否显示IP地址
         #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
         leaseRenewalIntervalInSeconds: 10

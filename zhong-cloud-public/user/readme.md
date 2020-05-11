@@ -1,0 +1,6 @@
+不同微服务，配置不同的Ribbon的负载均衡策略
+
+
+IRule不同通过ComponentScan扫描，这样会扫到一个里面
+
+单独放在config包下面配置

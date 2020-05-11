@@ -20,3 +20,8 @@ eureka:
         #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
         leaseExpirationDurationInSeconds: 30
 
+# 日志
+#logging:
+#    config: logback.xml
+#    level:
+#        com.gqzdev: trace

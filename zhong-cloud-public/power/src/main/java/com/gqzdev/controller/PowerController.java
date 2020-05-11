@@ -18,7 +18,7 @@ public class PowerController {
     @RequestMapping("/getPower")
     public Object getPower(){
         HashMap<String, Object> map = new HashMap<>();
-        map.put("key","power");
+        map.put("power","调用power服务00 返回结果success ");
         return map;
     }
 }
