@@ -1,7 +1,5 @@
 package com.gqzdev.config;
 
-import com.gqzdev.rule.MyLBRule;
-import com.netflix.loadbalancer.IRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @ComponentScan("com.gqzdev")
 @Configuration
 public class AppConfig extends WebMvcConfigurationSupport {
-
     /**
      * @LoadBalanced 负载均衡
      *
@@ -29,9 +26,6 @@ public class AppConfig extends WebMvcConfigurationSupport {
      * Ribbon客户端的负载均衡
      *
      */
-
-
-
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate(){
@@ -45,16 +39,16 @@ public class AppConfig extends WebMvcConfigurationSupport {
      *  RandomRule  随机
      *  Retry
      */
-
     //不同微服务，配置不同的Ribbon策略。
-    @Bean
-    public IRule iRule(){
-//        new RoundRobinRule();
-        //return new RandomRule();
-
-        //使用自定义的rule
-        return new MyLBRule();
-    }
+    // 需要单独配置  配置到ComponentScan扫描不到的地方。。。
+//    @Bean
+//    public IRule iRule(){
+////        new RoundRobinRule();
+//        //return new RandomRule();
+//
+//        //使用自定义的rule
+//        return new MyLBRule();
+//    }
 
     @Override
     protected void configurePathMatch(PathMatchConfigurer configurer) {

@@ -13,6 +13,7 @@ eureka:
             defaultZone: http://localhost:3000/eureka
 
     instance:
+        # 服务ID  对应Eureka中的Status
         instance-id: power-0 #此实例注册到eureka服务端的唯一的实例ID
         prefer-ip-address: true #是否显示IP地址
         #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)

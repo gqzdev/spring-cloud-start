@@ -5,6 +5,7 @@ spring:
     application:
         name: client-user #此实例注册到eureka服务端的name
 
+
 #eureka客户端配置  注册服务
 eureka:
     client:
@@ -20,8 +21,28 @@ eureka:
         #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
         leaseExpirationDurationInSeconds: 30
 
+#feign  整合feign到hystrix中。默认是关闭的
+feign:
+    hystrix:
+        enabled: true
+
+#hystrix
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 30000
+            # 配置熔断器设置  默认10秒
+            circuitBreaker:
+                requestVolumeThreshold: 5
+#        sleepWindowInMilliseconds : 5000   时间
+
+
 # 日志
 #logging:
 #    config: logback.xml
 #    level:
 #        com.gqzdev: trace
+

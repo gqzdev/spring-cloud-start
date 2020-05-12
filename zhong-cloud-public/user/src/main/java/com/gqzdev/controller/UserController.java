@@ -2,6 +2,8 @@ package com.gqzdev.controller;
 
 import com.gqzdev.service.PowerFeignClient;
 import com.gqzdev.util.Result;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,12 +47,19 @@ public class UserController {
      */
 
     @RequestMapping("/getPower")
+    @HystrixCommand(fallbackMethod = "getPowerFallBack",
+            threadPoolKey = "power",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize",value = "5")
+            }
+    )
     public Result getPower(){
 
         //通过Nginx方向代理，直接访问nginx服务 【RestTemplate】
         //return Result.success("操作成功！",restTemplate.getForObject("http://localhost/getPower",Object.class));
 
         //调用Eureka注册的服务，通过服务名
+        System.out.println("调用了 power 服务");
         return Result.success("调用成功",restTemplate.getForObject(POWER_URL+"/getPower",Object.class));
     }
 
@@ -58,12 +67,14 @@ public class UserController {
      *  通过使用Feign组件  封装请求调用
      */
     @RequestMapping("/getFeignPower")
+    @HystrixCommand(
+            fallbackMethod = "getFeignPowerFallBack"
+    )
     public Result getFeignPower(){
         System.out.println("----->通过FeignPower调用 ");
-        return powerFeignClient.getPower();
+        return Result.success("调用成功",powerFeignClient.getPower());
 
     }
-
 
 
     @RequestMapping("/getOrder")
@@ -74,5 +85,23 @@ public class UserController {
 
         //调用Eureka注册的服务，通过服务名
         return Result.success("调用成功",restTemplate.getForObject(ORDER_URL+"/getOrder",Object.class));
+    }
+
+
+    @RequestMapping("/getFeignProduct")
+    public Result getFeignProduct(){
+        return Result.success("调用成功",powerFeignClient.getProduct());
+
+    }
+
+
+
+    public Result getPowerFallBack(){
+        return Result.error("超时服务，-通过restTemplate，请稍后重试......");
+    }
+
+
+    public Result getFeignPowerFallBack(){
+        return Result.error("超时服务，-通过Feign调用，请稍后重试......");
     }
 }

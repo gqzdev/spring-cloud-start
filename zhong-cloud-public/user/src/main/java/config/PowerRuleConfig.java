@@ -1,7 +1,7 @@
 package config;
 
-import com.gqzdev.rule.MyLBRule;
 import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,6 +17,7 @@ public class PowerRuleConfig {
     @Bean
     public IRule iRule(){
         //使用自定义的rule
-        return new MyLBRule();
+//        return new MyLBRule();
+        return new RoundRobinRule();
     }
 }
