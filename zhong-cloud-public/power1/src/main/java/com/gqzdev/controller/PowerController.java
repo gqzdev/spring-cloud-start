@@ -24,8 +24,8 @@ public class PowerController {
         return map;
     }
 
-    @RequestMapping("/getProduct")
-    public Product getProduct(){
-        return new Product(212,"Spring Cloud入门到项目实战","",68.902);
-    }
+//    @RequestMapping("/getProduct")
+//    public Product getProduct(){
+//        return new Product(212,"Spring Cloud入门到项目实战","微服务解决方案 power1---->",68.902);
+//    }
 }

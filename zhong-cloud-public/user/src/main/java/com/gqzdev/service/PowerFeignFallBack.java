@@ -1,12 +1,16 @@
 package com.gqzdev.service;
 
 import com.gqzdev.util.Result;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 /**
  * @ClassName: PowerFeignFallBack
  * @author: ganquanzhong
  * @date: 2020/5/12 17:26
  */
+
+@Component
 public class PowerFeignFallBack implements PowerFeignClient{
     @Override
     public Result getPower() {

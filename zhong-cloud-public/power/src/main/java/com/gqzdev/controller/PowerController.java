@@ -73,6 +73,6 @@ public class PowerController {
 
     @RequestMapping("/getProduct")
     public Product getProduct(){
-        return new Product(212,"Spring Cloud入门到项目实战","",68.902);
+        return new Product(212,"Spring Cloud入门到项目实战","全站式微服务解决方案--》power0",68.902);
     }
 }

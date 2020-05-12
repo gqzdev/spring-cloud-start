@@ -15,11 +15,9 @@ package com.gqzdev.service;
 
 @FeignClient(name = "SERVER-POWER",fallback =PowerFeignFallBack.class )
 public interface PowerFeignClient {
-
-
     @RequestMapping("/getPower")
     public Result getPower();
 
-    @RequestMapping("getProduct")
+    @RequestMapping("/getProduct")
     public Result getProduct();
 }
