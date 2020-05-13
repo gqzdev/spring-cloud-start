@@ -66,7 +66,7 @@ public class PowerController {
     public Object getPower() throws InterruptedException {
         HashMap<String, Object> map = new HashMap<>();
         map.put("power","调用power服务00 --模拟限流{线程池控制}-- 返回结果success【power0】");
-        Thread.sleep(10000);
+//        Thread.sleep(10000);
         return map;
     }
 
