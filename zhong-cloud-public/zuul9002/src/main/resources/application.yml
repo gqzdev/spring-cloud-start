@@ -1,0 +1,45 @@
+server:
+    port: 9002
+
+spring:
+    application:
+        name: zuul-server #此实例注册到eureka服务端的name
+
+#eureka客户端配置  注册服务
+eureka:
+    client:
+        serviceUrl:
+            #eureka服务端提供的注册地址 参考服务端配置的这个路径
+            defaultZone: http://localhost:3000/eureka
+
+    instance:
+        # 服务ID  对应Eureka中的Status
+        instance-id: zuul-server-2 #此实例注册到eureka服务端的唯一的实例ID
+        prefer-ip-address: true #是否显示IP地址
+        #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+        leaseRenewalIntervalInSeconds: 10
+        #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+        leaseExpirationDurationInSeconds: 30
+
+#Zuul 网关配置
+zuul:
+    # 添加路由前缀
+    prefix: /api
+    # 忽略的 屏蔽掉服务访问
+    #ignored-services: server-power
+    # 忽略掉所有通过原服务名访问
+    ignored-services: "*"
+    # 默认为true ，去掉url前面的
+#    strip-prefix: false
+    routes:
+        my-power:
+            #配置自定义的route规则
+            serviceId: server-power
+            path: /power/**
+        my-order:
+            #配置自定义的route规则
+            serviceId: server-order
+            path: /order/**
+
+
+
