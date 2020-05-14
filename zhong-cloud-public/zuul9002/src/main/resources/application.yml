@@ -24,7 +24,7 @@ eureka:
 #Zuul 网关配置
 zuul:
     # 添加路由前缀
-    prefix: /api
+#    prefix: /api
     # 忽略的 屏蔽掉服务访问
     #ignored-services: server-power
     # 忽略掉所有通过原服务名访问

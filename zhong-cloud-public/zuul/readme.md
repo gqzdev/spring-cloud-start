@@ -28,3 +28,11 @@ zuul中定义了4中过滤器
  ROUTING：这种过滤器将请求路由到微服务。这种过滤器用于构建发送给微服务的请求，并使用 Apache HttpCIient或 Netfilx Ribbon请求微服务 
  POST:这种过滤器在路由到微服务以后执行。这种过滤器可用来为响应添加标准的 HTTP Header、收集统计信息和指标、将响应从微服务发送给客户端等。 
  ERROR：在其他阶段发生错误时执行该过滤器。
+ 
+ 
+ 
+### Zuul的集群  高可用
+
+使用Zuul搭建集群
+zuul9000本地通过路由  访问zuul9001 和 zuul9002 
+搭建方法 zuul9000中的配置 serviceId: zuul-server就行

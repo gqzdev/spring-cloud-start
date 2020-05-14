@@ -47,3 +47,9 @@ hystrix:
 #    level:
 #        com.gqzdev: trace
 
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+# 开启actuator 端点

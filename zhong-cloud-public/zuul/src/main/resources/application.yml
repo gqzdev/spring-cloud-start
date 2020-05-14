@@ -32,14 +32,10 @@ zuul:
     # 默认为true ，去掉url前面的
 #    strip-prefix: false
     routes:
-        my-power:
-            #配置自定义的route规则
-            serviceId: server-power
-            path: /power/**
-        my-order:
-            #配置自定义的route规则
-            serviceId: server-order
-            path: /order/**
+        my-zuul:
+            #配置自定义的route规则   zuul cluster 集群
+            serviceId: zuul-server
+            path: /zuul/**
 
 
 
