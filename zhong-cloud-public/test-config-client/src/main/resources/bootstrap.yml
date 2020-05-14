@@ -1,0 +1,14 @@
+#配置在 bootstrap.*中的属性有更高的优先级
+
+spring:
+  cloud:
+    config:
+      name: test-config
+      #这是我们要读取的配置文件名对应获取规则的{application}
+      #这个是要获取的环境对应的便是{profile}
+      profile: dev
+      #这个就是获取的节点对应的是{label}
+      label: master
+      #这就是我们config server的一个地址
+      uri: http://localhost:8080/
+
