@@ -2,6 +2,17 @@
 
 
 
+![](docs/images/gqzdev-spring-cloud.png)
+
+1. Spring Cloud 把各个组件相互配合起来，整合成一套成熟的微服务架构体系其中，
+2. 由`Eureka`做服务注册与发现，很好的把各个服务链接起来
+3. `Ribbon`+Feign提供了微服务的调用和负载均衡解决方案
+4. `Hystrix`负责监控微服务之间的调用情况，以及降级和熔断保护
+5. `Hystrix dashboard`监控`Hystrix`的熔断情况以及监控信息以图形化界面展示
+6. `Spring Cloud Config` 提供了统一的配置中心服务
+7. 所有外来的请求由`Zuul`统一进行路由和转发，起到了API网关的作用
+8. `Sleuth`与`Zipkin`把我们微服务的追踪数据记录下来并展示方便我们进行后续分析
+
 ## Spring Cloud architecture highlights
 
 ![Spring Cloud diagram](https://spring.io/images/cloud-diagram-1a4cad7294b4452864b5ff57175dd983.svg)

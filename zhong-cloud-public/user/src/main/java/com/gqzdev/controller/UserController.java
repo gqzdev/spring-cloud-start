@@ -5,7 +5,6 @@ import com.gqzdev.util.Result;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -79,6 +78,7 @@ public class UserController {
 
 
     @RequestMapping("/getOrder")
+    @HystrixCommand(fallbackMethod = "getOrderFallBack")
     public Result getOrder(){
 
         //通过Nginx方向代理，直接访问nginx服务 【RestTemplate】
@@ -96,6 +96,9 @@ public class UserController {
     }
 
 
+    public Result getOrderFallBack(){
+        return Result.error("服务繁忙，-Order服务，请稍后重试......");
+    }
 
     public Result getPowerFallBack(){
         return Result.error("超时服务，-通过restTemplate，请稍后重试......");

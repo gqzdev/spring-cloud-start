@@ -1,0 +1,31 @@
+server:
+    port: 9900
+
+
+#解决IllegalArgumentException: Prometheus requires that all meters with the same name have the same set of tag keys.
+management:
+    metrics:
+        web:
+            server:
+                autoTimeRequests: false
+
+## 解决could not be registered.
+spring:
+    main:
+        allow-bean-definition-overriding: true
+    application:
+        name: spring-cloud-zipkin
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:3000/eureka
+
+## 使用ES的做zipkin的持久化
+#zipkin:
+#    storage:
+#        type: elasticsearch
+#        elasticsearch:
+#            cluster: elasticsearch
+#            hosts: http://localhost:9200
+#            index: zipkin

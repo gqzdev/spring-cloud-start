@@ -4,6 +4,11 @@ server:
 spring:
     application:
         name: server-power #此实例注册到eureka服务端的name
+    zipkin:
+        base-url: http://localhost:9900  #指定Zipkin server地址
+        sleuth:
+            sampler:
+                probability: 1.0  #request采样的数量的标准 默认是0.1 也即是10%
 
 #eureka客户端配置  注册服务
 eureka:
