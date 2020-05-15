@@ -82,7 +82,7 @@ public class AppEureka3000 {
 }
 ```
 
-![](..\..\docs\images\eureka-discover.png)
+![](../../docs/images/eureka-discover.png)
 
 
 
