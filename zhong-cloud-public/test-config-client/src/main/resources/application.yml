@@ -1,3 +1,10 @@
 spring:
   application:
     name: test-config-client
+
+
+#Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:3000/eureka

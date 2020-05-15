@@ -2,6 +2,7 @@ package com.gqzdev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @ClassName AppConfigClient
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  **/
 
 @SpringBootApplication
+@EnableEurekaClient
 public class AppConfigClient {
     public static void main(String[] args){
         SpringApplication.run(AppConfigClient.class);

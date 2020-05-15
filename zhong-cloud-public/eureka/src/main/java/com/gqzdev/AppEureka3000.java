@@ -18,5 +18,4 @@ public class AppEureka3000 {
     public static void main(String[] args){
         SpringApplication.run(AppEureka3000.class,args);
     }
-
 }

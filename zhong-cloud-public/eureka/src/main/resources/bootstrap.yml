@@ -1,0 +1,16 @@
+#配置中心 获取配置
+
+#配置在 bootstrap.*中的属性有更高的优先级
+#spring:
+#  cloud:
+#    config:
+#      #这是我们要读取的配置文件名对应获取规则的{application}
+#      name: eureka3000
+#      #这个是要获取的环境对应的便是{profile}
+##      profile: dev
+#      #这个就是获取的节点对应的是{label}
+#      label: master
+#      #这就是我们config server的一个地址
+#      # 就是config-server模块的访问地址
+#      uri: http://localhost:8888/
+

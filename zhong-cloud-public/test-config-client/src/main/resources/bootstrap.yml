@@ -1,14 +1,24 @@
 #配置在 bootstrap.*中的属性有更高的优先级
-
 spring:
   cloud:
     config:
-      name: test-config
       #这是我们要读取的配置文件名对应获取规则的{application}
+      name: test-config1
       #这个是要获取的环境对应的便是{profile}
       profile: dev
       #这个就是获取的节点对应的是{label}
       label: master
       #这就是我们config server的一个地址
-      uri: http://localhost:8080/
+      # 就是config-server模块的访问地址
+#      uri: http://localhost:8888/
+      # 如果做了Config配置中心的集群，则通过eureka访问
+      # 打开discovery  和 指定service-id为 集群的application-name
+      discovery:
+        enabled: true
+        service-id: spring-cloud-config
 
+# 配置指定注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:3000/eureka
