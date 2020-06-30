@@ -1,8 +1,8 @@
 package com.gqzdev.service;
 
-        import com.gqzdev.util.Result;
-        import org.springframework.cloud.openfeign.FeignClient;
-        import org.springframework.web.bind.annotation.RequestMapping;
+import com.gqzdev.util.Result;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @ClassName: PowerFeignClient

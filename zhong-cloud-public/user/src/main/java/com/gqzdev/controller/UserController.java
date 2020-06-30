@@ -27,8 +27,12 @@ public class UserController {
     private RestTemplate restTemplate;
 
 
+     /**
+      *  通过Feign 封装调用远程服务
+      */
     @Autowired
     private PowerFeignClient powerFeignClient;
+
 
     @RequestMapping("/getUser")
     public Result getUser(){
@@ -45,7 +49,6 @@ public class UserController {
      *  power服务，搭建集群
      *  使用nginx反向代理，负载均衡调用power服务
      */
-
     @RequestMapping("/getPower")
     @HystrixCommand(fallbackMethod = "getPowerFallBack",
             threadPoolKey = "power",
@@ -54,7 +57,6 @@ public class UserController {
             }
     )
     public Result getPower(){
-
         //通过Nginx方向代理，直接访问nginx服务 【RestTemplate】
         //return Result.success("操作成功！",restTemplate.getForObject("http://localhost/getPower",Object.class));
 
@@ -92,7 +94,6 @@ public class UserController {
     @RequestMapping("/getFeignProduct")
     public Result getFeignProduct(){
         return Result.success("调用成功",powerFeignClient.getProduct());
-
     }
 
 
